@@ -54,6 +54,11 @@
         final_datas[component.types[j]] = component.long_name;
       }
     }
+    final_datas.name = place.name;
+    final_datas.opening_hours = place.opening_hours;
+    final_datas.website = place.website;
+    final_datas.international_phone_number = place.international_phone_number;
+    final_datas.permanently_closed = place.permanently_closed;
     document.getElementById("<%= form.options[:as].to_s + '_' + field.name.to_s %>").value = JSON.stringify(final_datas);
     updateMarker();
   }
