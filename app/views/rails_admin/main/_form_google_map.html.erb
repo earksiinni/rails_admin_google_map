@@ -62,6 +62,7 @@
     final_datas.price_level = place.price_level;
     final_datas.rating = place.rating;
     final_datas.room = place.room;
+    final_datas.types = place.types;
     final_datas.website = place.website;
     document.getElementById("<%= form.options[:as].to_s + '_' + field.name.to_s %>").value = JSON.stringify(final_datas);
     updateMarker();
