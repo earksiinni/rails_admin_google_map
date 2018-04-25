@@ -35,7 +35,9 @@
 
   function onPlaceChanged() {
     cleanAllMarkers();
-    var final_datas = {}
+    var final_datas = {
+      photos: []
+    }
     var place = this.getPlace();
 
     if (place.length == 0) {
@@ -54,6 +56,19 @@
         final_datas[component.types[j]] = component.long_name;
       }
     }
+    if (place.photos) {
+      for (var k in place.photos) {
+        var photo = place.photos[k]
+
+        final_datas.photos.push({
+          height: photo.height,
+          html_attributions: photo.html_attributions,
+          width: photo.width,
+          photo_reference: photo.photo_reference,
+          url: photo.getUrl({ maxWidth: photo.width, maxHeight: photo.height })
+        })
+      }
+    }
     final_datas.floor = place.floor;
     final_datas.international_phone_number = place.international_phone_number;
     final_datas.name = place.name;
@@ -61,6 +76,7 @@
     final_datas.permanently_closed = place.permanently_closed;
     final_datas.price_level = place.price_level;
     final_datas.rating = place.rating;
+    final_datas.reference = place.reference;
     final_datas.room = place.room;
     final_datas.types = place.types;
     final_datas.vicinity = place.vicinity;
