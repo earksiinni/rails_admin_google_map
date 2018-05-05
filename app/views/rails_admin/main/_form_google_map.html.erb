@@ -79,6 +79,7 @@
     final_datas.reference = place.reference;
     final_datas.room = place.room;
     final_datas.types = place.types;
+    final_datas.utc_offset = place.utc_offset;
     final_datas.vicinity = place.vicinity;
     final_datas.website = place.website;
     document.getElementById("<%= form.options[:as].to_s + '_' + field.name.to_s %>").value = JSON.stringify(final_datas);
